@@ -1,0 +1,10 @@
+localhost:8080/api/c/email/3/email@gmail.com ---to send email
+localhost:8080/api/update ---put request
+
+email value : {
+                "myemail": "vivekmane9941@gmail.com",
+                "Body": "Hey Friend,\nI hope you're doing great! 😊 I wanted to share something cool with you—I recently built an Email Sender Application using Spring Boot! Checkout: https://github.com/vivek-9941/EmailSender. This mail is being sent through the same application.",
+                "Subject": "Check Out My Email Sender Project!"
+              }
+
+localhost:8080/api/send ---register
