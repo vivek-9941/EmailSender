@@ -31,4 +31,18 @@ public class emailcontroller {
         }
         return ResponseEntity.ok("Registered");
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<String> update(@RequestPart("email") Model email,
+                                         @RequestPart("attachment") MultipartFile file) throws IOException {
+        System.out.println(email);
+        email.setFilename(file.getOriginalFilename());
+        email.setFiletype(file.getContentType());
+        email.setAttachment(file.getBytes());
+        Model fetched = emaildataservice.updatedetails(email);
+        if (fetched == null) {
+            return ResponseEntity.status(HttpStatus.IM_USED).body("This is not saved");
+        }
+        return ResponseEntity.ok("Updated");
+    }
 }
