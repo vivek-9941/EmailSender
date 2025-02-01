@@ -1,4 +1,4 @@
-localhost:8080/api/c/email/3/email@gmail.com ---to send email
+localhost:8080/api/c/email/useremail@gmail.com eg. localhost:8080/api/c/email/vivekmane9941@gmail.com---to send email and add the json
 localhost:8080/api/update ---put request
 
 email value : {

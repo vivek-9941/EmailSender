@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class emailcontroller {
 
 
@@ -32,7 +32,7 @@ public class emailcontroller {
         return ResponseEntity.ok("Registered");
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@RequestPart("email") Model email,
                                          @RequestPart("attachment") MultipartFile file) throws IOException {
         System.out.println(email);
@@ -44,5 +44,10 @@ public class emailcontroller {
             return ResponseEntity.status(HttpStatus.IM_USED).body("This is not saved");
         }
         return ResponseEntity.ok("Updated");
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String > deletebyid(@PathVariable int  id){
+        emaildataservice.deletedetails(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 }

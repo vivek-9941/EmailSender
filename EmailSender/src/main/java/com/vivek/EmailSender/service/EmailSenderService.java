@@ -10,20 +10,21 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.List;
 
 @Service
 public class EmailSenderService {
     @Autowired
     private JavaMailSender mailSender;
-        public void sendEmailWithAttachment(String toEmail,
+        public void sendEmailWithAttachment(List<String> toEmail,
                                             String Body,
                                             String Subject,
-                                            byte[] attachment,String filename) throws MessagingException {
+                                            byte[] attachment, String filename) throws MessagingException {
             MimeMessage mimeMessage =  mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 
             mimeMessageHelper.setFrom("vivekmane3306@gmail.com");
-            mimeMessageHelper.setTo(toEmail);
+            mimeMessageHelper.setTo(toEmail.toArray(new String[0]));
             mimeMessageHelper.setText(Body);
             mimeMessageHelper.setSubject(Subject);
             ByteArrayResource byteArrayResource = new ByteArrayResource(attachment);

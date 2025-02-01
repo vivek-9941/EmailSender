@@ -11,8 +11,8 @@ public class Emaildataservice {
 
 
     // Non-static method to fetch data by ID
-    public Model getemail(int id) {
-        return repo.findById(id).orElse(null); // Returns null if not found
+    public Model getemail(String id) {
+        return repo.findByMyemail(id); // Returns null if not found
     }
 
     public Model adddetails(Model model){
@@ -22,7 +22,7 @@ public class Emaildataservice {
     public Model updatedetails(Model model){
         return repo.save(model);
     }
-    public void deletedetails(Model model){
-        repo.delete(model);
+    public void deletedetails(int id){
+        repo.deleteById(id);
     }
 }
