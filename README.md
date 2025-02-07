@@ -43,4 +43,3 @@ To solve this, I built a **Spring Boot** application that allows users to send *
 
 ---
 
-## 📂 Project Structure  
