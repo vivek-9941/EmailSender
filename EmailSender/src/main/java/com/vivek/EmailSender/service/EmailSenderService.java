@@ -59,7 +59,6 @@ public class EmailSenderService {
     }
 //    When you're sending emails to multiple recipients, each email can be sent in parallel, reducing the total time. Instead of waiting for each email to be sent one
 //    after the other, threads can run independently, allowing multiple emails to be sent at the same time.
-//
 //    However, creating threads for each task can be expensive in terms of memory and system resources. A ThreadPool helps optimize this by managing a pool of worker
 //    threads that can handle multiple tasks efficiently.
 }
